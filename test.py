@@ -14,13 +14,13 @@ h =  150 #300
 parser = argparse.ArgumentParser()
 parser.add_argument('--input_dir',
                     type=str,
-                    default='dataset/Plane_train')
+                    default='dataset/cu')
 parser.add_argument('--model_dir',
                     type=str,
-                    default='./model_plane_03_09')
+                    default='./models/over')
 parser.add_argument('--save_dir',
                     type=str,
-                    default='./result1')
+                    default='./result1/over')
 parser.add_argument('--gpu',
                     type=int,
                     default=0)
@@ -68,6 +68,7 @@ def main(flags):
     # names.remove('.DS_Store')
 
     for name in names:
+        # add here, if png or jpg in name!
         inputname = os.path.join(flags.input_dir, name)
         print(inputname)
         image = read_image(inputname)

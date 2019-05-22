@@ -25,17 +25,17 @@ parser = argparse.ArgumentParser()
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--data_dir',
-                    default='./Plane_train.csv')
+                    default='./csv/over_train.csv')
 
 parser.add_argument('--test_dir',
-                    default='./Plane_val.csv')
+                    default='./csv/over_val.csv')
 
 parser.add_argument('--model_dir',
-                    default='./test1')
+                    default='./models/over')
 
 parser.add_argument('--epochs',
                     type=int,
-                    default=100)
+                    default=1000)
 
 parser.add_argument('--peochs_per_eval',
                     type=int,
@@ -46,7 +46,7 @@ parser.add_argument('--logdir',
 
 parser.add_argument('--batch_size',
                     type=int,
-                    default=50)
+                    default=256)
 
 parser.add_argument('--is_cross_entropy',
                     action='store_true',
@@ -299,21 +299,21 @@ def main(flags):
                     #train_writer.add_summary(step_summary, global_step_value)
                     print('epoch:{} step:{} loss_CE:{}'.format(epoch + 1, global_step_value, step_ce))
                     file = open(str(flags.model_dir) + '.txt', 'a')
-                    file.write('{} {} {}\n'.format('train', global_step_value, step_ce))
+                    file.write('{} {} {} {}\n'.format('train', epoch, global_step_value, step_ce))
                     file.close()
 
-                if epoch % 10 == 0:
-                    for step in range(0, num_test, flags.batch_size):
-                        X_test, y_test = sess.run([X_test_batch_op, y_test_batch_op])
-                        step_ce, step_summary = sess.run([Loss, summary_op], feed_dict={X: X_test, y: y_test, mode: False})
+                #if epoch % 10 == 0:
+                for step in range(0, num_test, flags.batch_size):
+                    X_test, y_test = sess.run([X_test_batch_op, y_test_batch_op])
+                    step_ce, step_summary = sess.run([Loss, summary_op], feed_dict={X: X_test, y: y_test, mode: False})
 
-                        #test_writer.add_summary(step_summary, epoch *
-                         #                       (num_train // flags.batch_size)
-                          #                      + step // flags.batch_size * num_train // num_test)
-                        print('Test loss_CE:{}'.format(step_ce))
-                        file = open(str(flags.model_dir) + '.txt', 'a')
-                        file.write('{} {} {}\n'.format('val', epoch + 1, step_ce))
-                        file.close()
+                    #test_writer.add_summary(step_summary, epoch *
+                     #                       (num_train // flags.batch_size)
+                      #                      + step // flags.batch_size * num_train // num_test)
+                    print('Test loss_CE:{}'.format(step_ce))
+                    file = open(str(flags.model_dir) + '.txt', 'a')
+                    file.write('{} {} {} {}\n'.format('val', epoch + 1, step, step_ce))
+                    file.close()
 
                 saver.save(sess, '{}/model.ckpt'.format(flags.model_dir))
 

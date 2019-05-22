@@ -8,7 +8,7 @@ def create_csv(dirname):
 
     name = os.listdir(path)
 
-    with open(dirname + '.csv', 'w') as csvfile:
+    with open('csv/'+dirname + '.csv', 'w') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(['data', 'label'])
         for n in name:

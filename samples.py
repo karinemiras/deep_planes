@@ -6,7 +6,7 @@ import numpy as np
 datasets_names = ['Butterfly',
                   'Giraffe',
                   'DogJump']
-prop = 0.05
+prop = 1
 
 
 for d in datasets_names:
