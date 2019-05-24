@@ -303,17 +303,17 @@ def main(flags):
                     file.close()
 
                 #if epoch % 10 == 0:
-                for step in range(0, num_test, flags.batch_size):
-                    X_test, y_test = sess.run([X_test_batch_op, y_test_batch_op])
-                    step_ce, step_summary = sess.run([Loss, summary_op], feed_dict={X: X_test, y: y_test, mode: False})
-
-                    #test_writer.add_summary(step_summary, epoch *
-                     #                       (num_train // flags.batch_size)
-                      #                      + step // flags.batch_size * num_train // num_test)
-                    print('Test loss_CE:{}'.format(step_ce))
-                    file = open(str(flags.model_dir) + '.txt', 'a')
-                    file.write('{} {} {} {}\n'.format('val', epoch + 1, step, step_ce))
-                    file.close()
+                # for step in range(0, num_test, flags.batch_size):
+                #     X_test, y_test = sess.run([X_test_batch_op, y_test_batch_op])
+                #     step_ce, step_summary = sess.run([Loss, summary_op], feed_dict={X: X_test, y: y_test, mode: False})
+                #
+                #     #test_writer.add_summary(step_summary, epoch *
+                #      #                       (num_train // flags.batch_size)
+                #       #                      + step // flags.batch_size * num_train // num_test)
+                #     print('Test loss_CE:{}'.format(step_ce))
+                #     file = open(str(flags.model_dir) + '.txt', 'a')
+                #     file.write('{} {} {} {}\n'.format('val', epoch + 1, step, step_ce))
+                #     file.close()
 
                 saver.save(sess, '{}/model.ckpt'.format(flags.model_dir))
 
