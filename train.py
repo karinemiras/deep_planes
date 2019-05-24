@@ -31,11 +31,11 @@ parser.add_argument('--test_dir',
                     default='./csv/Plane_val.csv')
 
 parser.add_argument('--model_dir',
-                    default='./models/test')
+                    default='./models/model_plane_030905')
 
 parser.add_argument('--epochs',
                     type=int,
-                    default=1000)
+                    default=150)
 
 parser.add_argument('--peochs_per_eval',
                     type=int,
@@ -46,7 +46,7 @@ parser.add_argument('--logdir',
 
 parser.add_argument('--batch_size',
                     type=int,
-                    default=32)
+                    default=128)
 
 parser.add_argument('--is_cross_entropy',
                     action='store_true',
