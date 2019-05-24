@@ -10,6 +10,9 @@ VGG_MEAN = [103.939, 116.779, 123.68]
 
 class Vgg16:
     def __init__(self, vgg16_npy_path=None):
+
+        wd = 0
+
         if vgg16_npy_path is None:
             path = sys.modules[self.__class__.__module__].__file__
             # print path
@@ -22,7 +25,9 @@ class Vgg16:
         self.data_dict = np.load(vgg16_npy_path, encoding='latin1',  allow_pickle=True).item()
         print("npy file loaded")
 
-    def build(self, input, train=False):
+    def build(self, input, wd, train=False):
+
+        self.wd = wd
 
         self.conv1_1 = self._conv_layer(input, "conv1_1")
         self.conv1_2 = self._conv_layer(self.conv1_1, "conv1_2")
@@ -82,13 +87,13 @@ class Vgg16:
 
     def get_conv_filter(self, name):
 
-        #W_regul = lambda x: self.L2(x)
+        W_regul = lambda x: self.L2(x)
 
-        #return tf.get_variable(name="filter",
-        #                       initializer=self.data_dict[name][0],
-        #                       trainable=True,
-        #                       regularizer=W_regul)
-        return tf.Variable(self.data_dict[name][0], name="filter")
+        return tf.get_variable(name="filter",
+                              initializer=self.data_dict[name][0],
+                              trainable=True,
+                              regularizer=W_regul)
+        #return tf.Variable(self.data_dict[name][0], name="filter")
 
     def get_bias(self, name):
         return tf.Variable(self.data_dict[name][1], name="biases")
@@ -96,5 +101,7 @@ class Vgg16:
     def get_fc_weight(self, name):
         return tf.Variable(self.data_dict[name][0], name="weights")
 
-    def L2(self, tensor, wd=0.001):
-        return tf.mul(tf.nn.l2_loss(tensor), wd, name='L2-Loss')
+    def L2(self, tensor):
+        print('sdfjsd nflsdjfnsdljfn sljfks')
+        print(self.wd)
+        return tf.multiply(tf.nn.l2_loss(tensor), self.wd, name='L2-Loss')

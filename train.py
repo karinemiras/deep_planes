@@ -25,13 +25,13 @@ parser = argparse.ArgumentParser()
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--data_dir',
-                    default='./csv/over_train.csv')
+                    default='./csv/Plane_train.csv')
 
 parser.add_argument('--test_dir',
-                    default='./csv/over_val.csv')
+                    default='./csv/Plane_val.csv')
 
 parser.add_argument('--model_dir',
-                    default='./models/over')
+                    default='./models/test')
 
 parser.add_argument('--epochs',
                     type=int,
@@ -55,6 +55,10 @@ parser.add_argument('--is_cross_entropy',
 parser.add_argument('--learning_rate',
                     type=float,
                     default=1e-3)
+
+parser.add_argument('--wd',
+                    type=float,
+                    default=0.0005)
 
 # 衰减系数
 parser.add_argument('--decay_rate',
@@ -171,7 +175,7 @@ def main(flags):
     mode = tf.placeholder(tf.bool, name='mode')
 
     score_dsn6_up, score_dsn5_up, score_dsn4_up, score_dsn3_up, score_dsn2_up, score_dsn1_up, upscore_fuse = model.unet(
-        X, mode)
+        X, mode, flags.wd)
 
     # print(score_dsn6_up.get_shape().as_list())
 

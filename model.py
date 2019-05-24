@@ -74,13 +74,13 @@ def upsampling_concat(input_A, input_B, name):
     return up_concat
 
 
-def unet(input, training):
+def unet(input, training, wd):
     # 归一化[-1,1]
     input = input / 127.5 - 1
     # input = tf.layers.conv2d(input,3,(1,1),name = 'color')   #filters:一个整数，输出空间的维度，也就是卷积核的数量
 
     vgg = vgg16.Vgg16()
-    vgg.build(input)
+    vgg.build(input, wd)
 
     default_shape = tf.stack([tf.shape(input)[0], tf.shape(input)[1], tf.shape(input)[2], 1])
 
