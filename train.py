@@ -93,8 +93,11 @@ def set_config():
 
     # 控制使用率
     os.environ['CUDA_VISIBLE_DEVICES'] = str(flags.gpu)
-    gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.4) #1
-    config = tf.ConfigProto(gpu_options=gpu_options)
+    # gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=1)
+    # config = tf.ConfigProto(gpu_options=gpu_options)
+
+    config = tf.ConfigProto()
+    config.gpu_options.allow_growth = True
     return tf.Session(config=config)
 
 
