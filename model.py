@@ -111,18 +111,14 @@ def unet(input, training):
 
     pool6 = pool2d(vgg.pool5, pool_size=(3, 3), pool_stride=1, name='pool5a')
 
-    #conv1_dsn6 = conv2d(pool6, (7, 7), [256], training, name='conv1-dsn6')
-    conv1_dsn6 = conv2d(pool6, (7, 7), [128], training, name='conv1-dsn6')
-    #    conv2_dsn6 = conv2d(conv1_dsn6, (7, 7), [256], training, name='conv2-dsn6')
-    conv2_dsn6 = conv2d(conv1_dsn6, (7, 7), [128], training, name='conv2-dsn6')
+    conv1_dsn6 = conv2d(pool6, (7, 7), [256], training, name='conv1-dsn6')
+    conv2_dsn6 = conv2d(conv1_dsn6, (7, 7), [256], training, name='conv2-dsn6')
     conv3_dsn6 = conv2d(conv2_dsn6, (1, 1), [1], training=training, name='conv3-dsn6', activation=None)
     score_dsn6_up = deconv2d(conv3_dsn6, 64, 32, training=False, name='upsample32_in_dsn6_sigmoid-dsn6',
                              output_shape=default_shape, activation=None)
 
-    conv1_dsn5 = conv2d(vgg.conv5_3, (5, 5), [128], training, name='conv1_dsn5')
-    conv2_dsn5 = conv2d(conv1_dsn5, (5, 5), [128], training, name='conv2-dsn5')
-    #conv1_dsn5 = conv2d(vgg.conv5_3, (5, 5), [256], training, name='conv1_dsn5')
-    #conv2_dsn5 = conv2d(conv1_dsn5, (5, 5), [256], training, name='conv2-dsn5')
+    conv1_dsn5 = conv2d(vgg.conv5_3, (5, 5), [256], training, name='conv1_dsn5')
+    conv2_dsn5 = conv2d(conv1_dsn5, (5, 5), [256], training, name='conv2-dsn5')
     conv3_dsn5 = conv2d(conv2_dsn5, (1, 1), [1], training=training, name='conv3-dsn5', activation=None)
     score_dsn5_up = deconv2d(conv3_dsn5, 32, 16, training=False, name='upsample16_in_dsn5_sigmoid-dsn5',
                              output_shape=default_shape, activation=None)
