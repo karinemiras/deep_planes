@@ -111,7 +111,8 @@ def unet(input, training):
 
     pool6 = pool2d(vgg.pool5, pool_size=(3, 3), pool_stride=1, name='pool5a')
 
-    conv1_dsn6 = conv2d(pool6, (7, 7), [256], training, name='conv1-dsn6')
+    #conv1_dsn6 = conv2d(pool6, (7, 7), [256], training, name='conv1-dsn6')
+    conv1_dsn6 = conv2d(pool6, (7, 7), [128], training, name='conv1-dsn6')
     conv2_dsn6 = conv2d(conv1_dsn6, (7, 7), [256], training, name='conv2-dsn6')
     conv3_dsn6 = conv2d(conv2_dsn6, (1, 1), [1], training=training, name='conv3-dsn6', activation=None)
     score_dsn6_up = deconv2d(conv3_dsn6, 64, 32, training=False, name='upsample32_in_dsn6_sigmoid-dsn6',
