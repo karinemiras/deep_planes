@@ -43,7 +43,7 @@ class Vgg16:
         self.pool4 = self._max_pool(self.conv4_3, 'pool4')
 
         self.conv5_1 = self._conv_layer(self.pool4, "conv5_1")
-        self.conv5_2 = self._conv_layer(self.conv5_1, "conv5_2")
+        #self.conv5_2 = self._conv_layer(self.conv5_1, "conv5_2")
         self.conv5_3 = self._conv_layer(self.conv5_2, "conv5_3")
         self.pool5 = self._max_pool(self.conv5_3, 'pool5')
 
