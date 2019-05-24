@@ -96,7 +96,9 @@ def set_config():
     # gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=1)
     # config = tf.ConfigProto(gpu_options=gpu_options)
 
-    config = tf.ConfigProto()
+    config = tf.ConfigProto(allow_soft_placement=True)
+    config.gpu_options.allocator_type = 'BFC'
+    config.gpu_options.per_process_gpu_memory_fraction = 0.40
     config.gpu_options.allow_growth = True
     return tf.Session(config=config)
 
