@@ -5,11 +5,11 @@
 #python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv  --model_dir ./models/model_plane_040905 --learning_rate 1e-4 --decay_rate 0.9 --wd 0.0005 --epochs 150;
 #python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv  --model_dir ./models/model_plane_080905 --learning_rate 1e-8 --decay_rate 0.9 --wd 0.0005 --epochs 150;
 #python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv  --model_dir ./models/model_plane_04071 --learning_rate 1e-4 --decay_rate 0.7 --wd 0.001 --epochs 150;
-python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv  --model_dir ./models/model_plane_040705 --learning_rate 1e-4 --decay_rate 0.7 --wd 0.0005 --epochs 50;
+#python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv  --model_dir ./models/model_plane_040705 --learning_rate 1e-4 --decay_rate 0.7 --wd 0.0005 --epochs 50;
+python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv  --model_dir ./models/model_plane_04091 --learning_rate 1e-4 --decay_rate 0.9 --wd 0.001 --epochs 50;
 python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv  --model_dir ./models/model_plane_03091 --learning_rate 1e-3 --decay_rate 0.9 --wd 0.001 --epochs 50;
 python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv  --model_dir ./models/model_plane_060705 --learning_rate 1e-6 --decay_rate 0.7 --wd 0.0005 --epochs 50;
 python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv  --model_dir ./models/model_plane_05071 --learning_rate 1e-5 --decay_rate 0.7 --wd 0.001 --epochs 50;
-python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv  --model_dir ./models/model_plane_06091 --learning_rate 1e-6 --decay_rate 0.9 --wd 0.001 --epochs 50;
 
 #python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv --model_dir ./models/model_plane;
 #python train.py --data_dir ./csv/Butterfly_train.csv --test_dir ./csv/Plane_val.csv --model_dir ./models/model_butterfly;
