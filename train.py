@@ -46,7 +46,7 @@ parser.add_argument('--logdir',
 
 parser.add_argument('--batch_size',
                     type=int,
-                    default=8)
+                    default=128)
 
 parser.add_argument('--is_cross_entropy',
                     action='store_true',
