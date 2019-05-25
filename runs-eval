@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+python evaluate_batch.py --original Plane_train --class_ Plane_train_labels   --pred planetrain_model_plane_0409;
+python evaluate_batch.py --original Plane_train --class_ Plane_train_labels   --pred planetrain_model_plane_040905;
+python evaluate_batch.py --original Plane_train --class_ Plane_train_labels   --pred planetrain_model_plane_080905;
+python evaluate_batch.py --original Plane_train --class_ Plane_train_labels   --pred planetrain_model_plane_04071;
+python evaluate_batch.py --original Plane_train --class_ Plane_train_labels   --pred planetrain_model_plane_040705;
+python evaluate_batch.py --original Plane_train --class_ Plane_train_labels   --pred planetrain_model_plane_04091;
+python evaluate_batch.py --original Plane_train --class_ Plane_train_labels   --pred planetrain_model_plane_03091;
+python evaluate_batch.py --original Plane_train --class_ Plane_train_labels   --pred planetrain_model_plane_060705;
+python evaluate_batch.py --original Plane_train --class_ Plane_train_labels   --pred planetrain_model_plane_05071;
+
+python evaluate_batch.py --original Plane_val --save_dir --class_ Plane_val_labels   --pred planeval_model_plane_03091;
+python evaluate_batch.py --original Plane_val --save_dir --class_ Plane_val_labels    --pred planeval_model_plane_0409;
+python evaluate_batch.py --original Plane_val --save_dir --class_ Plane_val_labels   --pred planeval_model_plane_040905;
+python evaluate_batch.py --original Plane_val --save_dir --class_ Plane_val_labels   --pred planeval_model_plane_080905;
+python evaluate_batch.py --original Plane_val --save_dir --class_ Plane_val_labels  --pred planeval_model_plane_04071;
+python evaluate_batch.py --original Plane_val --save_dir --class_ Plane_val_labels   --pred planeval_model_plane_040705;
+python evaluate_batch.py --original Plane_val --save_dir --class_ Plane_val_labels   --pred planeval_model_plane_04091;
+python evaluate_batch.py --original Plane_val --save_dir --class_ Plane_val_labels   --pred planeval_model_plane_060705;
+python evaluate_batch.py --original Plane_val --save_dir --class_ Plane_val_labels   --pred planeval_model_plane_05071;
+

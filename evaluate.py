@@ -5,10 +5,6 @@ import os
 w =  200 #400
 h =  150 #300
 
-original_ = 'none'#'Plane_val'
-class_ = 'none'#'Plane_val_labels'
-pred_ = 'dataset/none'#'result1/test1'
-
 original_ = 'Plane_train'
 class_ = 'Plane_train_labels'
 pred_ = 'result1/test1_t'

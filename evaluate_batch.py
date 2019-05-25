@@ -1,17 +1,35 @@
 from __future__ import print_function
 import tensorflow as tf
 import os
+import argparse
 
 w = 200 #400
 h = 150 #300
 
-original_ = 'over_val'
-class_ = 'over_val_labels'
-pred_ = 'result1/over'
+
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument('--original',
+                    default='Plane_train')
+parser.add_argument('--class_',
+                    default='Plane_train_labels')
+parser.add_argument('--pred',
+                    default='planetrain_model_plane_040905')
+
+flags = parser.parse_args()
+#
+# original_ = 'Plane_train'
+# class_ = 'Plane_train_labels'
+# pred__ = 'planetrain_model_plane_040905'
+
+original_ = flags.original
+class_ = flags.class_
+pred__ = flags.pred
 
 path_original = 'dataset/'+original_
 path_class = 'dataset/'+class_
-path_pred = pred_
+path_pred = 'result1/'+pred__
 
 images_class = []
 images_pred = []
@@ -36,7 +54,7 @@ for r, d, f in os.walk(path_original):
 
 print('>> read')
 
-batch = 1
+batch = 300
 batch_counter = 0
 for i in range(0, len(images_class)):
     print(images_class[i])
@@ -109,6 +127,6 @@ output = tf.strings.join([accuracy, '\n',
                          ])
 
 sess.run(tf.io.write_file(
-    tf.strings.join([original_, '_measures.txt']),
+    tf.strings.join(['analysis/',pred__, '_measures.txt']),
      output
 ))

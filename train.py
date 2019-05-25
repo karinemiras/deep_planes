@@ -22,8 +22,6 @@ g_mean = [142.53, 129.53, 120.20]
 
 parser = argparse.ArgumentParser()
 
-parser = argparse.ArgumentParser()
-
 parser.add_argument('--data_dir',
                     default='./csv/Plane_train.csv')
 

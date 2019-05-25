@@ -102,6 +102,4 @@ class Vgg16:
         return tf.Variable(self.data_dict[name][0], name="weights")
 
     def L2(self, tensor):
-        print('sdfjsd nflsdjfnsdljfn sljfks')
-        print(self.wd)
         return tf.multiply(tf.nn.l2_loss(tensor), self.wd, name='L2-Loss')
