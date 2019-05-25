@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+#python test.py --input_dir ./dataset/Plane_train --save_dir ./result1/planetrain_model_plane_0409   --model_dir ./models/model_plane_0409;
+#python test.py --input_dir ./dataset/Plane_train --save_dir ./result1/planetrain_model_plane_040905  --model_dir ./models/model_plane_040905;
+python test.py --input_dir ./dataset/Plane_train --save_dir ./result1/planetrain_model_plane_080905  --model_dir ./models/model_plane_080905;
+python test.py --input_dir ./dataset/Plane_train --save_dir ./result1/planetrain_model_plane_04071  --model_dir ./models/model_plane_04071;
+python test.py --input_dir ./dataset/Plane_train --save_dir ./result1/planetrain_model_plane_040705  --model_dir ./models/model_plane_040705;
+python test.py --input_dir ./dataset/Plane_train --save_dir ./result1/planetrain_model_plane_04091  --model_dir ./models/model_plane_04091;
+python test.py --input_dir ./dataset/Plane_train --save_dir ./result1/planetrain_model_plane_03091  --model_dir ./models/model_plane_03091;
+python test.py --input_dir ./dataset/Plane_train --save_dir ./result1/planetrain_model_plane_060705  --model_dir ./models/model_plane_060705;
+python test.py --input_dir ./dataset/Plane_train --save_dir ./result1/planetrain_model_plane_05071  --model_dir ./models/model_plane_05071;
+
+

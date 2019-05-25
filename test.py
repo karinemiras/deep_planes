@@ -14,13 +14,13 @@ h =  150 #300
 parser = argparse.ArgumentParser()
 parser.add_argument('--input_dir',
                     type=str,
-                    default='dataset/cu')
+                    default='dataset/Plane_train')
 parser.add_argument('--model_dir',
                     type=str,
-                    default='./models/over')
+                    default='./models/model_plane_040905')
 parser.add_argument('--save_dir',
                     type=str,
-                    default='./result1/over')
+                    default='./result1/planetrain_model_plane_040905')
 parser.add_argument('--gpu',
                     type=int,
                     default=0)
@@ -62,7 +62,8 @@ def main(flags):
     sess = load_model()
     X, mode = tf.get_collection('inputs')
     pred = tf.get_collection('upscore_fuse')[0]
- 
+
+    os.mkdir(flags.save_dir)
     names = os.listdir(flags.input_dir)
  
     # names.remove('.DS_Store')
