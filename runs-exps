@@ -16,12 +16,13 @@
 
 #python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv  --model_dir ./models/model_plane_030915 --learning_rate 1e-3 --decay_rate 0.9 --wd 0.0015 --epochs 112;
 
-python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv  --model_dir ./models/model_plane_0309125 --learning_rate 1e-3 --decay_rate 0.9 --wd 0.00125 --epochs 50;
-python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv  --model_dir ./models/model_plane_005091 --learning_rate 0.005 --decay_rate 0.9 --wd 0.001 --epochs 50;
+#python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv  --model_dir ./models/model_plane_0309125 --learning_rate 1e-3 --decay_rate 0.9 --wd 0.00125 --epochs 50;
+#python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv  --model_dir ./models/model_plane_005091 --learning_rate 0.005 --decay_rate 0.9 --wd 0.001 --epochs 50;
 
-#python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv --model_dir ./models/model_plane;
-#python train.py --data_dir ./csv/Butterfly_train.csv --test_dir ./csv/Plane_val.csv --model_dir ./models/model_butterfly;
-#python train.py --data_dir ./csv/DogJump_train.csv --test_dir ./csv/Plane_val.csv --model_dir ./models/model_dog;
-#python train.py --data_dir ./csv/Giraffe_train.csv --test_dir ./csv/Plane_val.csv --model_dir ./models/model_giraffe;
+python train.py --data_dir ./csv/Plane_train.csv --test_dir ./csv/Plane_val.csv  --model_dir ./models/model_plane_030905 --learning_rate 1e-3 --decay_rate 0.9 --wd 0.0005 --epochs 50;
+
+#python train.py --data_dir ./csv/Butterfly_train.csv --test_dir ./csv/Plane_val.csv --model_dir ./models/model_butterfly --learning_rate 1e-3 --decay_rate 0.9 --wd 0.001 --epochs 133;
+#python train.py --data_dir ./csv/DogJump_train.csv --test_dir ./csv/Plane_val.csv --model_dir ./models/model_dog  --learning_rate 1e-3 --decay_rate 0.9 --wd 0.001 --epochs 133;
+
 
 
